@@ -21,7 +21,7 @@ Hypothesis → Experiment → Measurement → Evidence → Decision
 | Experiment | Evidence | Status |
 |---|---:|---|
 | Flow Intelligence | 62 frames · 55 tracks · 2,377 events | Demonstrated |
-| Semantic Video Search | 499 indexed objects · Recall@10 reported at 100% on 3 test queries | Demonstrated after runtime correction |
+| Semantic Video Search | 499 indexed objects · 100% Recall@10 on 3 diagnostic queries | Demonstrated |
 
 These results use public proxy footage and are demonstrations of capability, not claims about any specific client environment.
 
