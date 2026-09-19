@@ -6,4 +6,4 @@ A short public traffic proxy was processed with YOLO and ByteTrack. The demonstr
 
 ## Semantic Video Search
 
-Detected-object crops were indexed with CLIP and queried through Qdrant. The corrected runtime reported 499 indexed objects and 100% recall@10 across three test queries. This is a small diagnostic on proxy footage, not a benchmark or a guarantee of domain performance.
+Detected-object crops were indexed with CLIP and queried through Qdrant. The demonstration indexed 499 objects and achieved 100% Recall@10 on 3 diagnostic queries. This is a small diagnostic on proxy footage, not a benchmark or a guarantee of domain performance.
