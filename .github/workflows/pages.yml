@@ -1,4 +1,4 @@
-name: Deploy Vidal Intelligence site
+name: Deploy Video Intelligence site
 
 on:
   push:

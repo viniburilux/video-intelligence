@@ -1,10 +1,10 @@
-# Vidal Intelligence
+# Video Intelligence
 
 ## Video Intelligence Discovery Lab
 
 **From hypothesis to evidence.**
 
-What if a company could test a new video intelligence capability before investing in a full product or infrastructure build? Vidal Intelligence is a public demonstration of a discovery-lab pattern for turning video into measurable evidence.
+What if a company could test a new video intelligence capability before investing in a full product or infrastructure build? Video Intelligence is a public demonstration of a discovery-lab pattern for turning video into measurable evidence.
 
 ```text
 Hypothesis → Experiment → Measurement → Evidence → Decision
