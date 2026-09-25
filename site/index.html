@@ -3,269 +3,70 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Video Intelligence Discovery Lab — Um laboratório de descoberta e desenvolvimento de soluções de inteligência sobre vídeo.">
-  <title>Video Intelligence — Discovery Lab</title>
+  <meta name="description" content="Applied Intelligence — infraestrutura experimental de engenharia e P&D aplicada para transformar dados operacionais em inteligência aplicável.">
+  <meta property="og:title" content="Applied Intelligence — Engenharia e P&D aplicada">
+  <meta property="og:description" content="Transformamos dados operacionais em inteligência aplicável.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://luxverso.com/applied-intelligence/">
+  <title>Applied Intelligence — Engenharia e P&amp;D aplicada</title>
   <style>
-    :root { --ink:#eaf0f6; --muted:#9badbd; --line:#203244; --bg:#071019; --panel:#0d1a26; --cyan:#58d5d0; --lime:#b8e986; --amber:#f6c667; }
-    * { box-sizing:border-box; } body { margin:0; background:radial-gradient(circle at 80% 0%,#123248 0,#071019 42%); color:var(--ink); font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif; line-height:1.55; }
-    a { color:var(--cyan); text-decoration:none; } a:hover { text-decoration:underline; }
-    .wrap { max-width:1120px; margin:auto; padding:28px 24px 80px; }
-    nav { display:flex; justify-content:space-between; align-items:center; color:var(--muted); font-size:.9rem; flex-wrap:wrap; gap:10px; }
-    .brand-group { display:flex; flex-direction:column; gap:2px; }
-    .parent-brand { font-size:.65rem; letter-spacing:.18em; color:var(--muted); text-transform:uppercase; }
-    .lab-brand { display:flex; align-items:baseline; gap:12px; }
-    .lab-brand strong { color:var(--ink); letter-spacing:.04em; font-size:1rem; }
-    .lab-brand span { color:var(--muted); font-size:.85rem; }
-    .lang-switch { display:flex; gap:6px; font-size:.8rem; } .lang-switch a { color:var(--muted); } .lang-switch a.active { color:var(--cyan); font-weight:700; }
-    .hero { padding:100px 0 72px; max-width:820px; } .eyebrow { color:var(--cyan); text-transform:uppercase; letter-spacing:.18em; font-size:.72rem; font-weight:700; }
-    h1 { font-size:clamp(3rem,8vw,6.7rem); line-height:.98; letter-spacing:-.07em; margin:18px 0 24px; max-width:850px; }
-    .hero-em { color:var(--cyan); font-style:normal; }
-    .lede { color:var(--muted); font-size:clamp(1.1rem,2vw,1.4rem); max-width:680px; }
-    .hero-tag { margin-top:18px; font-size:.9rem; color:var(--lime); font-weight:600; }
-    .hero-key { margin-top:28px; padding:18px 20px; border-left:3px solid var(--cyan); background:rgba(88,213,208,.06); color:var(--muted); font-size:1rem; line-height:1.6; }
-    .flow { display:flex; flex-wrap:wrap; gap:10px; margin-top:34px; color:var(--ink); font-weight:700; }
-    .flow span { padding:9px 12px; border:1px solid var(--line); background:rgba(13,26,38,.75); border-radius:999px; }
-    .flow i { color:var(--cyan); font-style:normal; padding-top:9px; }
-    section { margin-top:70px; } h2 { font-size:1.9rem; letter-spacing:-.04em; margin:0 0 10px; } .section-lede { color:var(--muted); max-width:650px; }
-    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:24px; }
-    .card { border:1px solid var(--line); background:rgba(13,26,38,.82); padding:22px; border-radius:14px; min-height:165px; } .card h3 { margin:0 0 10px; } .card p { margin:0; color:var(--muted); }
-    .status { color:var(--lime); font-size:.75rem; text-transform:uppercase; letter-spacing:.12em; font-weight:700; }
-    .experiment { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:24px; } .experiment .card { min-height:0; }
-    .metric { font-size:2.2rem; font-weight:800; letter-spacing:-.05em; color:var(--cyan); margin:10px 0 2px; } .metric-label { color:var(--muted); font-size:.88rem; }
-    .pipeline { margin-top:24px; padding:28px; border:1px solid var(--line); border-radius:14px; display:grid; grid-template-columns:repeat(7,1fr); gap:8px; background:#091722; } .step { text-align:center; padding:14px 5px; color:var(--muted); font-size:.83rem; } .step b { display:block; color:var(--ink); margin-bottom:8px; }
-    .step:not(:last-child)::after { content:'→'; color:var(--cyan); float:right; margin-right:-10px; margin-top:-24px; }
-    .note { margin-top:24px; padding:18px 20px; border-left:3px solid var(--amber); color:var(--muted); background:rgba(246,198,103,.06); }
-    .highlight { margin-top:20px; padding:24px; border:1px solid var(--cyan); border-radius:14px; background:rgba(88,213,208,.06); } .highlight p { margin:0; color:var(--muted); line-height:1.6; }
-    .faq { margin-top:24px; }
-    .faq-item { border-bottom:1px solid var(--line); padding:16px 0; }
-    .faq-item summary { cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; font-size:1rem; font-weight:600; color:var(--ink); }
-    .faq-item summary::-webkit-details-marker { display:none; }
-    .faq-item summary:after { content:'+'; flex:none; color:var(--cyan); font-size:1.2rem; font-weight:400; margin-left:12px; }
-    .faq-item[open] summary:after { content:'–'; }
-    .faq-item p { margin-top:12px; max-width:750px; color:var(--muted); font-size:.92rem; line-height:1.65; }
-    footer { border-top:1px solid var(--line); margin-top:80px; padding-top:22px; color:var(--muted); font-size:.9rem; display:flex; justify-content:space-between; gap:20px; }
-    .footer-left { display:flex; flex-direction:column; gap:4px; }
-    @media(max-width:760px){ .grid,.experiment { grid-template-columns:1fr; } .pipeline { grid-template-columns:1fr; } .step:not(:last-child)::after { content:'↓'; float:none; display:block; margin:4px 0 0; } footer { display:block; } }
+    :root{--ink:#eaf0f6;--muted:#9badbd;--line:#203244;--bg:#071019;--panel:#0d1a26;--cyan:#58d5d0;--lime:#b8e986;--amber:#f6c667;--max:1120px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 80% 0%,#123248 0,#071019 42%);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6}a{color:var(--cyan);text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:var(--max);margin:auto;padding:28px 24px 80px}nav{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.9rem;flex-wrap:wrap;gap:16px}.brand-group{display:flex;flex-direction:column;gap:3px}.parent-brand{font-size:.65rem;letter-spacing:.18em;color:var(--muted);text-transform:uppercase}.lab-brand{display:flex;align-items:baseline;gap:12px}.lab-brand strong{color:var(--ink);letter-spacing:.04em;font-size:1rem}.lab-brand span{color:var(--muted);font-size:.85rem}.lang-switch{display:flex;gap:6px;font-size:.8rem}.lang-switch a{color:var(--muted)}.lang-switch a.active{color:var(--cyan);font-weight:700}.hero{padding:105px 0 74px;max-width:900px}.eyebrow{color:var(--cyan);text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;font-weight:700}.hero h1{font-size:clamp(3rem,8vw,6.7rem);line-height:.96;letter-spacing:-.07em;margin:18px 0 24px;max-width:900px}.hero-em{color:var(--cyan);font-style:normal}.lede{color:var(--muted);font-size:clamp(1.1rem,2vw,1.4rem);max-width:760px}.hero-key{margin-top:28px;padding:22px 24px;border-left:3px solid var(--cyan);background:rgba(88,213,208,.06);color:var(--ink);font-size:clamp(1.05rem,2vw,1.25rem);line-height:1.6}.hero-note{margin-top:18px;color:var(--lime);font-weight:600}.flow{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px;color:var(--ink);font-weight:700}.flow span{padding:9px 12px;border:1px solid var(--line);background:rgba(13,26,38,.75);border-radius:999px}.flow i{color:var(--cyan);font-style:normal;padding-top:9px}section{margin-top:72px}h2{font-size:clamp(1.7rem,3vw,2.25rem);letter-spacing:-.04em;margin:0 0 10px}.section-lede{color:var(--muted);max-width:720px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}.card{border:1px solid var(--line);background:rgba(13,26,38,.82);padding:22px;border-radius:14px;min-height:165px}.card h3{margin:0 0 10px}.card p{margin:0;color:var(--muted)}.status{color:var(--lime);font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;font-weight:700}.method{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:24px;padding:24px;border:1px solid var(--line);border-radius:14px;background:#091722}.method-step{text-align:center;padding:14px 5px;color:var(--muted);font-size:.83rem}.method-step b{display:block;color:var(--ink);margin-bottom:8px}.method-step:not(:last-child)::after{content:'→';color:var(--cyan);float:right;margin-right:-10px;margin-top:-24px}.modalities{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.modalities span{padding:11px 15px;border:1px solid var(--line);border-radius:999px;color:var(--ink);background:rgba(13,26,38,.65)}.experiment{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}.experiment .card{min-height:0}.metric{font-size:2.2rem;font-weight:800;letter-spacing:-.05em;color:var(--cyan);margin:10px 0 2px}.metric-label{color:var(--muted);font-size:.88rem}.highlight{margin-top:20px;padding:24px;border:1px solid var(--cyan);border-radius:14px;background:rgba(88,213,208,.06)}.highlight p{margin:0;color:var(--muted);line-height:1.6}.note{margin-top:24px;padding:18px 20px;border-left:3px solid var(--amber);color:var(--muted);background:rgba(246,198,103,.06)}.cta{margin-top:24px;display:inline-flex;align-items:center;gap:10px;padding:13px 18px;background:var(--cyan);color:#071019;font-weight:800}.cta:hover{text-decoration:none;background:var(--lime)}footer{border-top:1px solid var(--line);margin-top:80px;padding-top:22px;color:var(--muted);font-size:.9rem;display:flex;justify-content:space-between;gap:20px}.footer-left{display:flex;flex-direction:column;gap:4px}.footer-links{display:flex;gap:14px;flex-wrap:wrap}@media(max-width:760px){.grid,.experiment{grid-template-columns:1fr}.method{grid-template-columns:1fr}.method-step:not(:last-child)::after{content:'↓';float:none;display:block;margin:4px 0 0}footer{display:block}.footer-links{margin-top:16px}.hero{padding-top:78px}}
   </style>
 </head>
 <body>
   <div class="wrap">
     <nav>
-      <div class="brand-group">
-        <div class="parent-brand">LuxVerso Research Tech</div>
-        <div class="lab-brand">
-          <strong>VIDEO INTELLIGENCE</strong>
-          <span>DISCOVERY LAB</span>
-        </div>
-      </div>
-      <div class="lang-switch">
-        <a href="#" class="active" onclick="setLang('pt')">PT</a><span style="color:var(--muted)">|</span><a href="#" onclick="setLang('en')">EN</a>
-      </div>
+      <div class="brand-group"><div class="parent-brand">LuxVerso Research Tech</div><div class="lab-brand"><strong>APPLIED INTELLIGENCE</strong><span>ENGINEERING &amp; R&amp;D</span></div></div>
+      <div class="lang-switch"><a href="#" class="active" onclick="setLang('pt');return false">PT</a><span>|</span><a href="#" onclick="setLang('en');return false">EN</a></div>
     </nav>
 
-    <!-- PT hero -->
     <header class="hero" id="hero-pt">
-      <div class="eyebrow">Laboratório de descoberta e desenvolvimento</div>
-      <h1>Da hipótese <span class="hero-em">ao produto.</span></h1>
-      <p class="lede">Um laboratório para transformar problemas reais de inteligência sobre vídeo em hipóteses testáveis, evidências mensuráveis e novos produtos — construído em parceria com quem conhece o problema.</p>
-      <p class="hero-tag">Os experimentos demonstram capacidade técnica. O produto é o processo de descoberta.</p>
-      <div class="hero-key">Nós já construímos o laboratório. Já validamos o método. Agora queremos aplicar essa capacidade a problemas e dados reais para descobrir e desenvolver novas soluções de Video Intelligence.</div>
-      <div class="flow"><span>Problema real</span><i>→</i><span>Hipótese de produto</span><i>→</i><span>Experimento</span><i>→</i><span>Dados reais</span><i>→</i><span>Medição</span><i>→</i><span>Evidência</span><i>→</i><span>POC</span><i>→</i><span>Produto</span></div>
+      <div class="eyebrow">Applied Intelligence</div>
+      <h1>Transformamos dados operacionais em <span class="hero-em">inteligência aplicável.</span></h1>
+      <p class="lede">Somos uma equipe de engenharia e P&amp;D aplicada capaz de investigar, experimentar e construir sistemas de inteligência para problemas que ainda não têm uma solução pronta.</p>
+      <div class="hero-key"><strong>Você não precisa saber qual IA precisa. Precisa saber qual problema precisa resolver.</strong><br><span>Nós investigamos o caminho tecnológico.</span></div>
+      <div class="flow"><span>Problema</span><i>→</i><span>Hipótese</span><i>→</i><span>Experimento</span><i>→</i><span>Evidência</span><i>→</i><span>Decisão</span><i>→</i><span>Sistema</span></div>
     </header>
 
-    <!-- EN hero -->
     <header class="hero" id="hero-en" style="display:none">
-      <div class="eyebrow">Discovery and development lab</div>
-      <h1>From hypothesis <span class="hero-em">to product.</span></h1>
-      <p class="lede">A lab for turning real video intelligence problems into testable hypotheses, measurable evidence, and new products — built in partnership with those who know the problem best.</p>
-      <p class="hero-tag">Experiments demonstrate technical capability. The product is the discovery process.</p>
-      <div class="hero-key">We already built the lab. We already validated the method. Now we want to apply this capability to real problems and data to discover and build new Video Intelligence solutions.</div>
-      <div class="flow"><span>Real problem</span><i>→</i><span>Product hypothesis</span><i>→</i><span>Experiment</span><i>→</i><span>Real data</span><i>→</i><span>Measurement</span><i>→</i><span>Evidence</span><i>→</i><span>POC</span><i>→</i><span>Product</span></div>
+      <div class="eyebrow">Applied Intelligence</div>
+      <h1>We turn operational data into <span class="hero-em">actionable intelligence.</span></h1>
+      <p class="lede">We are an applied engineering and R&amp;D team that investigates, experiments, and builds intelligence systems for problems that do not yet have a ready-made solution.</p>
+      <div class="hero-key"><strong>You do not need to know which AI you need. You need to know which problem you need to solve.</strong><br><span>We investigate the technological path.</span></div>
+      <div class="flow"><span>Problem</span><i>→</i><span>Hypothesis</span><i>→</i><span>Experiment</span><i>→</i><span>Evidence</span><i>→</i><span>Decision</span><i>→</i><span>System</span></div>
     </header>
 
-    <!-- O que fazemos / What the lab does PT -->
-    <section id="vision-pt">
-      <h2>De problema operacional a produto de Video Intelligence</h2>
-      <div class="card">
-        <p>Vídeo contém sinais que podem se transformar em inteligência operacional. Mas, em muitos problemas, a solução não está definida de antemão. O laboratório existe para explorar essas possibilidades de forma sistemática: formular uma hipótese de produto a partir de um problema real, combinar tecnologias, construir experimentos, medir resultados, identificar limitações e transformar hipóteses promissoras em POCs com dados reais.</p>
-        <p style="margin-top:16px">Nós não começamos com um produto. Começamos com um problema.</p>
-      </div>
-    </section>
+    <section id="problem-pt"><h2>O problema vem antes da tecnologia</h2><p class="section-lede">Problemas reais não chegam com o modelo, framework ou algoritmo escolhido. Eles chegam como problema, contexto operacional e dados disponíveis. A tecnologia é escolhida em função do problema — não o contrário.</p><div class="highlight"><p>Experimentação não é o fim. O objetivo é produzir evidência suficiente para decidir o que vale desenvolver, o que precisa ser reformulado e o que não deve ser construído.</p></div></section>
+    <section id="problem-en" style="display:none"><h2>The problem comes before the technology</h2><p class="section-lede">Real problems do not arrive with a model, framework, or algorithm already chosen. They arrive as a problem, an operational context, and available data. Technology is selected in response to the problem — not the other way around.</p><div class="highlight"><p>Experimentation is not the end. The goal is to produce enough evidence to decide what is worth developing, what must be reframed, and what should not be built.</p></div></section>
 
-    <section id="vision-en" style="display:none">
-      <h2>From operational problem to Video Intelligence product</h2>
-      <div class="card">
-        <p>Video contains signals that can become operational intelligence. But in many problems, the solution isn't defined upfront. The lab exists to systematically explore those possibilities: formulating a product hypothesis from a real problem, combining technologies, building experiments, measuring results, identifying limitations, and turning promising hypotheses into POCs with real data.</p>
-        <p style="margin-top:16px">We don't start with a product. We start with a problem.</p>
-      </div>
-    </section>
+    <section id="method-pt"><h2>Um método para sair da pergunta e chegar ao sistema</h2><p class="section-lede">Nós investigamos possibilidades, construímos hipóteses, testamos mecanismos e transformamos evidências em uma decisão de desenvolvimento.</p><div class="method"><div class="method-step"><b>PROBLEMA</b>contexto e pergunta</div><div class="method-step"><b>HIPÓTESE</b>mecanismo possível</div><div class="method-step"><b>EXPERIMENTO</b>teste executável</div><div class="method-step"><b>EVIDÊNCIA</b>medição e limites</div><div class="method-step"><b>DECISÃO</b>o que vale avançar</div><div class="method-step"><b>SISTEMA</b>desenvolvimento necessário</div></div></section>
+    <section id="method-en" style="display:none"><h2>A method from question to system</h2><p class="section-lede">We investigate possibilities, build hypotheses, test mechanisms, and turn evidence into a development decision.</p><div class="method"><div class="method-step"><b>PROBLEM</b>context and question</div><div class="method-step"><b>HYPOTHESIS</b>possible mechanism</div><div class="method-step"><b>EXPERIMENT</b>executable test</div><div class="method-step"><b>EVIDENCE</b>measurement and limits</div><div class="method-step"><b>DECISION</b>what to advance</div><div class="method-step"><b>SYSTEM</b>necessary development</div></div></section>
 
-    <!-- Perguntas de descoberta / Discovery questions PT -->
-    <section id="questions-pt">
-      <h2>Perguntas que o laboratório permite investigar</h2>
-      <p class="section-lede">Estas não são promessas de produto. São exemplos do espaço de descoberta que o laboratório pode explorar ao lado da Interjato.</p>
-      <div class="grid">
-        <article class="card"><h3>Que novos produtos podemos criar?</h3><p>A partir dos problemas que a Interjato já conhece nos ambientes que atende — hospitais, escolas, tribunais, trânsito e mobilidade.</p></article>
-        <article class="card"><h3>Que sinais ainda não viram inteligência?</h3><p>Nos vídeos dos clientes, existem sinais que ainda não estão sendo transformados em dados, eventos ou decisões operacionais.</p></article>
-        <article class="card"><h3>Onde modelos bastam e onde precisamos construir?</h3><p>Alguns problemas têm solução pronta. Outros exigem combinar tecnologias ou desenvolver algoritmos especializados.</p></article>
-        <article class="card"><h3>Como ir de hipótese para POC?</h3><p>Sem investir em um produto completo antes de testar e medir suas premissas com dados reais.</p></article>
-        <article class="card"><h3>Que sinais se replicam entre ambientes?</h3><p>Capacidades que funcionam em um tipo de ambiente (hospital) podem ser adaptadas para outros (escola, tribunal) com ciclos rápidos de validação.</p></article>
-        <article class="card"><h3>Quando é compensação customizar?</h3><p>Nem sempre é necessário desenvolver do zero. Quando a tecnologia existente não atende, o laboratório preenche a lacuna.</p></article>
-      </div>
-    </section>
+    <section id="modalities-pt"><h2>Modalidades que podem ser exploradas</h2><p class="section-lede">A abordagem pode investigar diferentes modalidades de dados. A lista abaixo representa o horizonte arquitetural de exploração, não uma afirmação de que todas estão implementadas neste repositório.</p><div class="modalities"><span>Vídeo</span><span>Imagem</span><span>Documentos</span><span>Sensores</span><span>Dados estruturados</span><span>Séries temporais</span><span>Linguagem</span></div></section>
+    <section id="modalities-en" style="display:none"><h2>Modalities we can explore</h2><p class="section-lede">The approach can investigate different data modalities. This list describes the architectural exploration space, not a claim that every modality is implemented in this repository.</p><div class="modalities"><span>Video</span><span>Images</span><span>Documents</span><span>Sensors</span><span>Structured data</span><span>Time series</span><span>Language</span></div></section>
 
-    <section id="questions-en" style="display:none">
-      <h2>Questions the lab can investigate</h2>
-      <p class="section-lede">These are not product promises. They are examples of the discovery space the lab can explore alongside Interjato.</p>
-      <div class="grid">
-        <article class="card"><h3>What new products can we create?</h3><p>From the problems Interjato already knows in the environments it serves — hospitals, schools, courthouses, traffic and mobility.</p></article>
-        <article class="card"><h3>What signals aren't yet intelligence?</h3><p>In client videos, there are signals not yet being transformed into data, events, or operational decisions.</p></article>
-        <article class="card"><h3>Where do models suffice and where must we build?</h3><p>Some problems have off-the-shelf solutions. Others require combining technologies or developing custom algorithms.</p></article>
-        <article class="card"><h3>How to go from hypothesis to POC?</h3><p>Without investing in a full product before testing and measuring its premises on real data.</p></article>
-        <article class="card"><h3>Which signals replicate across environments?</h3><p>Capabilities that work in one environment (hospital) can be adapted to others (school, courthouse) with fast validation cycles.</p></article>
-        <article class="card"><h3>When does customization pay off?</h3><p>It's not always necessary to build from scratch. When existing technology falls short, the lab fills the gap.</p></article>
-      </div>
-    </section>
+    <section id="capability-pt"><div class="status">Demonstrated capability</div><h2>Video Intelligence</h2><p class="section-lede">Uma capacidade experimental já construída e demonstrada. Video Intelligence é uma capacidade dentro de Applied Intelligence — não o limite do projeto.</p><div class="grid"><article class="card"><h3>Percepção e movimento</h3><p>Detecção de objetos, tracking, estruturação de eventos, métricas de trajetória e dwell time.</p></article><article class="card"><h3>Representação e busca</h3><p>Embeddings, busca semântica e recuperação de conteúdo visual para investigação.</p></article><article class="card"><h3>Experimentação e avaliação</h3><p>Pipelines executáveis, métricas diagnósticas, evidência pública e registro explícito de limitações.</p></article></div></section>
+    <section id="capability-en" style="display:none"><div class="status">Demonstrated capability</div><h2>Video Intelligence</h2><p class="section-lede">An experimental capability already built and demonstrated. Video Intelligence is one capability within Applied Intelligence — not the project's limit.</p><div class="grid"><article class="card"><h3>Perception and motion</h3><p>Object detection, tracking, event structuring, trajectory metrics, and dwell time.</p></article><article class="card"><h3>Representation and search</h3><p>Embeddings, semantic search, and visual-content retrieval for investigation.</p></article><article class="card"><h3>Experimentation and evaluation</h3><p>Executable pipelines, diagnostic metrics, public evidence, and explicit limitations.</p></article></div></section>
 
-    <!-- Tecnologia é meio / Technology as means PT -->
-    <section id="tech-pt">
-      <h2>Tecnologia é meio, não produto</h2>
-      <p class="section-lede">Os componentes atuais — YOLO, ByteTrack, CLIP, Qdrant — são ferramentas do laboratório. Podem ser substituídos, combinados ou complementados conforme o problema real exige.</p>
-      <div class="grid">
-        <article class="card"><div class="status">Demonstrada</div><h3>Perception</h3><p>Detectar e representar elementos relevantes presentes no vídeo. YOLO validado em footage proxy.</p></article>
-        <article class="card"><div class="status">Demonstrada</div><h3>Flow Intelligence</h3><p>Transformar movimento, trajetórias e permanência em eventos mensuráveis. YOLO + ByteTrack.</p></article>
-        <article class="card"><div class="status">Demonstrada</div><h3>Semantic Search</h3><p>Permitir exploração semântica de conteúdo visual. CLIP + Qdrant para texto-para-vídeo.</p></article>
-      </div>
-    </section>
+    <section id="experiments-pt"><h2>Capacidade experimental em funcionamento</h2><p class="section-lede">Os experimentos abaixo são evidência técnica e infraestrutura experimental. Não são benchmark industrial, case comercial ou promessa de performance em ambiente de cliente.</p><div class="experiment"><article class="card"><div class="status">Flow Intelligence · demonstrada</div><h3>Fluxo viário em footage proxy público</h3><div class="metric">2.377</div><div class="metric-label">linhas de eventos a partir de 62 frames</div><p style="margin-top:18px">55 tracks únicas · YOLO + ByteTrack</p></article><article class="card"><div class="status">Semantic Search · demonstrada</div><h3>Busca texto-para-vídeo</h3><div class="metric">100%</div><div class="metric-label">Recall@10 em 3 queries diagnósticas</div><p style="margin-top:18px">499 objetos indexados · CLIP + Qdrant</p></article></div></section>
+    <section id="experiments-en" style="display:none"><h2>Experimental capability in operation</h2><p class="section-lede">These experiments are technical evidence and experimental infrastructure. They are not an industrial benchmark, commercial case study, or performance claim for a client environment.</p><div class="experiment"><article class="card"><div class="status">Flow Intelligence · demonstrated</div><h3>Traffic flow on public proxy footage</h3><div class="metric">2,377</div><div class="metric-label">event rows from 62 frames</div><p style="margin-top:18px">55 unique tracks · YOLO + ByteTrack</p></article><article class="card"><div class="status">Semantic Search · demonstrated</div><h3>Text-to-video search</h3><div class="metric">100%</div><div class="metric-label">Recall@10 on 3 diagnostic queries</div><p style="margin-top:18px">499 indexed objects · CLIP + Qdrant</p></article></div></section>
 
-    <section id="tech-en" style="display:none">
-      <h2>Technology is means, not product</h2>
-      <p class="section-lede">Current components — YOLO, ByteTrack, CLIP, Qdrant — are lab instruments. They can be replaced, combined, or complemented as the real problem demands.</p>
-      <div class="grid">
-        <article class="card"><div class="status">Demonstrated</div><h3>Perception</h3><p>Detecting and representing relevant visual elements. YOLO validated on proxy footage.</p></article>
-        <article class="card"><div class="status">Demonstrated</div><h3>Flow Intelligence</h3><p>Transforming movement, trajectories and dwell into measurable events. YOLO + ByteTrack.</p></article>
-        <article class="card"><div class="status">Demonstrated</div><h3>Semantic Search</h3><p>Exploring visual content through semantic queries. CLIP + Qdrant for text-to-video.</p></article>
-      </div>
-    </section>
+    <section id="applications-pt"><h2>Onde esse tipo de inteligência pode entrar</h2><p class="section-lede">São espaços de aplicação possíveis para investigar com problemas e dados representativos. Não são uma lista de cases realizados.</p><div class="grid"><article class="card"><h3>Operações</h3><p>Transformar sinais operacionais em informação para acompanhamento e decisão.</p></article><article class="card"><h3>Inspeção e segurança</h3><p>Investigar eventos, condições e padrões relevantes em ambientes específicos.</p></article><article class="card"><h3>Logística e ativos</h3><p>Explorar fluxos, movimentação, ocupação e estado de ativos.</p></article><article class="card"><h3>Processos industriais</h3><p>Construir hipóteses para problemas que exigem dados, experimentação e integração.</p></article><article class="card"><h3>Conhecimento operacional</h3><p>Organizar documentos, linguagem e registros para tornar perguntas investigáveis.</p></article><article class="card"><h3>Problemas ainda sem ferramenta pronta</h3><p>Combinar modalidades e mecanismos quando uma solução pronta não responde ao contexto.</p></article></div></section>
+    <section id="applications-en" style="display:none"><h2>Where this kind of intelligence can enter</h2><p class="section-lede">These are possible application spaces to investigate with representative data and real problems. They are not a list of completed cases.</p><div class="grid"><article class="card"><h3>Operations</h3><p>Turn operational signals into information for monitoring and decision-making.</p></article><article class="card"><h3>Inspection and safety</h3><p>Investigate events, conditions, and patterns relevant to specific environments.</p></article><article class="card"><h3>Logistics and assets</h3><p>Explore flows, movement, occupancy, and asset state.</p></article><article class="card"><h3>Industrial processes</h3><p>Build hypotheses for problems requiring data, experimentation, and integration.</p></article><article class="card"><h3>Operational knowledge</h3><p>Organize documents, language, and records so questions become investigable.</p></article><article class="card"><h3>Problems without a ready-made tool</h3><p>Combine modalities and mechanisms when an off-the-shelf solution does not fit the context.</p></article></div></section>
 
-    <!-- Demonstrações / Experiments PT -->
-    <section id="demos-pt">
-      <h2>O laboratório já funciona</h2>
-      <p class="section-lede">Os experimentos abaixo são demonstrações de capacidade, não o catálogo de produtos da Interjato. Mostram que conseguimos transformar hipóteses de inteligência sobre vídeo em pipelines executáveis, métricas e evidências.</p>
-      <div class="experiment">
-        <article class="card"><div class="status">Flow Intelligence · demonstrada</div><h3>Fluxo viário (proxy)</h3><div class="metric">2.377</div><div class="metric-label">event rows a partir de 62 frames</div><p style="margin-top:18px">55 tracks únicas · vídeo proxy público · YOLO + ByteTrack</p></article>
-        <article class="card"><div class="status">Semantic Search · demonstrada</div><h3>Busca texto-para-vídeo</h3><div class="metric">100%</div><div class="metric-label">Recall@10 em 3 queries diagnósticas</div><p style="margin-top:18px">499 objetos indexados · CLIP + Qdrant · resultado diagnóstico</p></article>
-      </div>
-    </section>
+    <section id="product-pt"><h2>Da experimentação ao desenvolvimento</h2><p class="section-lede">Uma hipótese não vira produto por entusiasmo. Ela avança quando os testes produzem evidência suficiente para decidir o que vale desenvolver.</p><div class="method"><div class="method-step"><b>DISCOVERY</b>pergunta e contexto</div><div class="method-step"><b>POC</b>mecanismo testável</div><div class="method-step"><b>PRODUCT DEVELOPMENT</b>sistema necessário</div></div></section>
+    <section id="product-en" style="display:none"><h2>From experimentation to development</h2><p class="section-lede">A hypothesis does not become a product through enthusiasm. It advances when tests produce enough evidence to decide what is worth developing.</p><div class="method"><div class="method-step"><b>DISCOVERY</b>question and context</div><div class="method-step"><b>POC</b>testable mechanism</div><div class="method-step"><b>PRODUCT DEVELOPMENT</b>necessary system</div></div></section>
 
-    <section id="demos-en" style="display:none">
-      <h2>The lab is already running</h2>
-      <p class="section-lede">The experiments below are demonstrations of capability, not the Interjato product catalog. They show we can transform video intelligence hypotheses into executable pipelines, metrics, and evidence.</p>
-      <div class="experiment">
-        <article class="card"><div class="status">Flow Intelligence · demonstrated</div><h3>Traffic flow (proxy)</h3><div class="metric">2,377</div><div class="metric-label">event rows from 62 frames</div><p style="margin-top:18px">55 unique tracks · public proxy video · YOLO + ByteTrack</p></article>
-        <article class="card"><div class="status">Semantic Search · demonstrated</div><h3>Text-to-video retrieval</h3><div class="metric">100%</div><div class="metric-label">Recall@10 on 3 diagnostic queries</div><p style="margin-top:18px">499 indexed objects · CLIP + Qdrant · diagnostic result</p></article>
-      </div>
-    </section>
+    <section id="contact-pt"><h2>Tem um problema difícil?</h2><div class="highlight"><p><strong>Traga o problema, os dados disponíveis e o contexto operacional.</strong><br>Nós investigamos as possibilidades, construímos hipóteses, testamos mecanismos e transformamos as evidências em uma decisão sobre o que vale desenvolver.</p></div><a class="cta" href="https://luxverso.com/empresa/#contato">Apresentar um problema →</a></section>
+    <section id="contact-en" style="display:none"><h2>Do you have a difficult problem?</h2><div class="highlight"><p><strong>Bring the problem, the available data, and the operational context.</strong><br>We investigate possibilities, build hypotheses, test mechanisms, and turn evidence into a decision about what is worth developing.</p></div><a class="cta" href="https://luxverso.com/empresa/#contato">Present a problem →</a></section>
 
-    <!-- Pipeline PT -->
-    <section id="pipe-pt">
-      <h2>Pipeline experimental</h2>
-      <div class="pipeline"><div class="step"><b>Vídeo</b>fonte</div><div class="step"><b>Detecção</b>objetos</div><div class="step"><b>Tracking</b>identidade ao longo do tempo</div><div class="step"><b>Eventos</b>dados estruturados</div><div class="step"><b>Representação</b>embeddings</div><div class="step"><b>Avaliação</b>métricas</div><div class="step"><b>Decisão</b>próximo passo</div></div>
-    </section>
-
-    <section id="pipe-en" style="display:none">
-      <h2>Experiment pipeline</h2>
-      <div class="pipeline"><div class="step"><b>Video</b>source</div><div class="step"><b>Detection</b>objects</div><div class="step"><b>Tracking</b>identity over time</div><div class="step"><b>Events</b>structured data</div><div class="step"><b>Representation</b>embeddings</div><div class="step"><b>Evaluation</b>metrics</div><div class="step"><b>Decision</b>next move</div></div>
-    </section>
-
-    <!-- Horizonte / Horizon PT -->
-    <section id="horizon-pt">
-      <h2>Onde isso pode chegar</h2>
-      <p class="section-lede">O laboratório pode investigar e desenvolver soluções em diferentes contextos à medida que problemas e dados reais sejam disponibilizados. Estas são hipóteses de desenvolvimento — não produtos prontos.</p>
-      <div class="grid">
-        <article class="card"><h3>Inteligência de fluxo e mobilidade</h3><p>Análise de trânsito, movimentação de pessoas e veículos, ocupação de espaços.</p></article>
-        <article class="card"><h3>Monitoramento de zonas e ambientes</h3><p>Detecção de eventos em áreas delimitadas, permanência e movimentação não autorizada.</p></article>
-        <article class="card"><h3>Busca inteligente em vídeo</h3><p>Recuperação semântica de conteúdo visual em grandes volumes de gravações.</p></article>
-        <article class="card"><h3>Análise comportamental</h3><p>Identificação de padrões a partir de trajetórias e interações ao longo do tempo.</p></article>
-        <article class="card"><h3>Inteligência para ambientes específicos</h3><p>Hospitais, escolas, tribunais, trânsito — cada ambiente demanda hipóteses próprias.</p></article>
-        <article class="card"><h3>Algoritmos especializados</h3><p>Desenvolvimento de soluções customizadas quando as tecnologias existentes não atendem ao problema.</p></article>
-      </div>
-    </section>
-
-    <section id="horizon-en" style="display:none">
-      <h2>Where this can go</h2>
-      <p class="section-lede">The lab can investigate and develop solutions across different contexts as real problems and data become available. These are development hypotheses — not finished products.</p>
-      <div class="grid">
-        <article class="card"><h3>Flow & mobility intelligence</h3><p>Traffic analysis, people and vehicle movement, space occupancy.</p></article>
-        <article class="card"><h3>Zone & environment monitoring</h3><p>Event detection in delimited areas, dwell and unauthorized movement.</p></article>
-        <article class="card"><h3>Intelligent video search</h3><p>Semantic retrieval of visual content in large recording archives.</p></article>
-        <article class="card"><h3>Behavioral analysis</h3><p>Pattern detection from trajectories and interactions over time.</p></article>
-        <article class="card"><h3>Specialized environment intelligence</h3><p>Hospitals, schools, courthouses, traffic — each environment demands its own hypotheses.</p></article>
-        <article class="card"><h3>Custom algorithms</h3><p>Building specialized solutions when existing technology falls short.</p></article>
-      </div>
-    </section>
-
-    <!-- FAQ PT -->
-    <section id="faq-pt">
-      <h2>Perguntas frequentes</h2>
-      <div class="faq">
-        <details class="faq-item"><summary>O que diferencia esse laboratório de uma consultoria de IA?</summary><p>Consultorias entregam relatórios e recomendações. O laboratório entrega um processo: formula uma hipótese de produto a partir do problema real, constrói um experimento executável, mede os resultados nos seus dados, documenta as evidências e só recomenda investimento quando uma hipótese prova-se promissora. Não vendemos um modelo pronto. Construímos evidência sobre se um produto faz sentido para o seu problema.</p></details>
-        <details class="faq-item"><summary>Que tipos de problema podem ser investigados?</summary><p>Qualquer problema em que vídeo contenha sinais relevantes ainda não transformados em inteligência operacional: monitoramento de ambientes, fluxo e permanência, detecção de eventos específicos, busca em volumes grandes de gravação, análise comportamental ao longo do tempo. Se há vídeo e uma pergunta que processamento visual pode responder, o laboratório pode investigar.</p></details>
-        <details class="faq-item"><summary>Quanto tempo leva de um problema a uma POC?</summary><p>Semanas, não meses. O laboratório é projetado para ciclos rápidos de experimentação: hipótese → experimento → medição → evidência → decisão. Uma hipótese promissora pode virar POC no mesmo ciclo, sem burocracia entre etapas.</p></details>
-        <details class="faq-item"><summary>A Interjato precisa de equipe técnica dedicada?</summary><p>Não. O laboratório roda com a equipe do LuxVerso Research Tech. A Interjato entra com o conhecimento do problema, o acesso aos dados representativos e autorizados, e a participação nas decisões sobre quais hipóteses investigar. A execução experimentalé nossa.</p></details>
-        <details class="faq-item"><summary>Isso substitui um fornecedor de visão computacional?</summary><p>Não substitui — informa. O trabalho do laboratório é descobrir se um produto de Video Intelligence vale a pena ser construído antes de contratar uma solução em larga escala. O resultado é uma especificação informada por evidência, que pode ser implementada internamente, por um parceiro tecnológico ou dentro do próprio laboratório.</p></details>
-        <details class="faq-item"><summary>O que a Interjato ganha ao participar desse processo?</summary><p>Acesso a um método de descoberta que reduz o risco de investir em produtos errados. Em vez de contratar uma solução pronta que pode não se adaptar ao seu problema, a Interjato participa da construção de evidência sobre quais soluções valem a pena construir — e quais não. O investimento inicial é em descoberta, não em implementação.</p></details>
-      </div>
-    </section>
-
-    <section id="faq-en" style="display:none">
-      <h2>Frequently asked questions</h2>
-      <div class="faq">
-        <details class="faq-item"><summary>What makes this lab different from an AI consultancy?</summary><p>Consultancies deliver reports and recommendations. The lab delivers a process: formulate a product hypothesis from the real problem, build an executable experiment, measure results on your data, document evidence, and only recommend investment when a hypothesis proves promising. We don't sell an off-the-shelf model. We build evidence about whether a product makes sense for your problem.</p></details>
-        <details class="faq-item"><summary>What kinds of problems can be investigated?</summary><p>Any problem where video contains relevant signals not yet being transformed into operational intelligence: environment monitoring, flow and dwell, specific event detection, search in large recording archives, behavioral analysis over time. If there's video and a question that visual processing can answer, the lab can investigate.</p></details>
-        <details class="faq-item"><summary>How long does it take from problem to POC?</summary><p>Weeks, not months. The lab is designed for fast experiment cycles: hypothesis → experiment → measurement → evidence → decision. A promising hypothesis can become a POC in the same cycle without bureaucratic handoffs.</p></details>
-        <details class="faq-item"><summary>Does Interjato need a dedicated technical team?</summary><p>No. The lab runs with the LuxVerso Research Tech team. Interjato brings problem knowledge, representative and authorized data access, and participation in deciding which hypotheses to investigate. Experimental execution is ours.</p></details>
-        <details class="faq-item"><summary>Does this replace a computer vision vendor?</summary><p>It doesn't replace — it informs. The lab's work is to discover whether a Video Intelligence product is worth building before committing to a large-scale vendor engagement. The output is an evidence-informed specification that can be built in-house, by a technology partner, or within the lab itself.</p></details>
-        <details class="faq-item"><summary>What does Interjato gain from participating?</summary><p>Access to a discovery method that reduces the risk of investing in wrong products. Instead of buying an off-the-shelf solution that may not fit the problem, Interjato participates in building evidence about which solutions are worth building — and which are not. The initial investment is in discovery, not implementation.</p></details>
-      </div>
-    </section>
-
-    <!-- Próximo passo / Next step PT -->
-    <section id="next-pt">
-      <h2>O próximo passo é aplicar o laboratório à realidade</h2>
-      <div class="highlight">
-        <p>As demonstrações públicas mostram que a infraestrutura experimental funciona. A próxima etapa é trabalhar com dados representativos e autorizados da Interjato, formular hipóteses relacionadas aos desafios reais — hospitais, escolas, tribunais, trânsito e mobilidade — e desenvolver as POCs correspondentes. O laboratório já está funcionando. Agora precisamos dos problemas e dados reais para descobrir quais soluções de Video Intelligence vale a pena construir.</p>
-      </div>
-    </section>
-
-    <section id="next-en" style="display:none">
-      <h2>The next step is applying the lab to reality</h2>
-      <div class="highlight">
-        <p>Public demonstrations show the experimental infrastructure works. The next stage is working with Interjato's representative, authorized data — formulating hypotheses around real challenges in hospitals, schools, courthouses, traffic and mobility — and developing corresponding POCs. The lab is already running. Now we need real problems and data to discover which Video Intelligence solutions are worth building.</p>
-      </div>
-    </section>
-
-    <div class="note"><strong>A interpretação importa.</strong> Estas demonstrações usam footage proxy público. Elas mostram que o pipeline consegue produzir evidência; não representam performance validada em nenhum ambiente operacional específico. Dados representativos e autorizados são necessários para uma validação real junto à Interjato.</div>
-
-    <footer>
-      <div class="footer-left">
-        <span class="parent-brand">LUXVERSO RESEARCH TECH</span>
-        <span>Video Intelligence Discovery Lab</span>
-      </div>
-      <span><a href="https://github.com/viniburilux/video-intelligence">Repositório</a> · <a href="../docs/">Documentação</a></span>
-    </footer>
+    <div class="note"><strong>Limitações e interpretação.</strong> Os experimentos públicos usam footage proxy e não representam câmeras, iluminação, densidade, procedimentos ou contexto legal de clientes. Tracking não equivale a identidade; busca em crops não equivale a compreensão completa da cena. As métricas são ilustrativas e precisam ser revalidadas em dados autorizados e representativos.</div>
+    <footer><div class="footer-left"><span class="parent-brand">LUXVERSO RESEARCH TECH</span><span>Applied Intelligence · experimental engineering &amp; R&amp;D</span></div><div class="footer-links"><a href="https://github.com/viniburilux/applied-intelligence">Repositório</a><a href="https://github.com/viniburilux/applied-intelligence/tree/main/docs">Documentação</a><a href="https://luxverso.com/empresa/#contato">Contato</a></div></footer>
   </div>
-
   <script>
-  const sections = ['hero','vision','questions','tech','demos','pipe','horizon','faq','next'];
-  function setLang(lang) {
-    for (const p of sections) {
-      document.getElementById(p+'-pt').style.display = lang === 'pt' ? '' : 'none';
-      document.getElementById(p+'-en').style.display = lang === 'en' ? '' : 'none';
-    }
-    document.querySelectorAll('.lang-switch a').forEach(a => a.classList.remove('active'));
-    document.querySelector('.lang-switch a[onclick*="'+lang+'"]').classList.add('active');
-  }
+    const sections=['hero','problem','method','modalities','capability','experiments','applications','product','contact'];
+    function setLang(lang){for(const p of sections){document.getElementById(p+'-pt').style.display=lang==='pt'?'':'none';document.getElementById(p+'-en').style.display=lang==='en'?'':'none'}document.querySelectorAll('.lang-switch a').forEach(a=>a.classList.remove('active'));document.querySelector('.lang-switch a[onclick*="'+lang+'"]').classList.add('active');document.documentElement.lang=lang==='pt'?'pt-BR':'en'}
   </script>
 </body>
 </html>

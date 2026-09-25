@@ -1,38 +1,57 @@
-# Video Intelligence
+# Applied Intelligence
 
-## Video Intelligence Discovery Lab
+## Infraestrutura experimental de engenharia e P&D aplicada
 
-**From hypothesis to evidence.**
+**Transformamos dados operacionais em inteligência aplicável.**
 
-What if a company could test a new video intelligence capability before investing in a full product or infrastructure build? Video Intelligence is a public demonstration of a discovery-lab pattern for turning video into measurable evidence.
+Applied Intelligence é uma infraestrutura experimental para investigar problemas operacionais e industriais que ainda não têm uma solução tecnológica pronta. O projeto combina engenharia, experimentação e avaliação para transformar uma pergunta real em evidência suficiente para decidir o que vale desenvolver.
 
 ```text
-Hypothesis → Experiment → Measurement → Evidence → Decision
+Problema → Hipótese → Experimento → Evidência → Decisão → Sistema
 ```
 
-## Demonstrated capabilities
+A pergunta de partida não é qual modelo, framework ou algoritmo usar. É: **qual problema precisa ser resolvido, em qual contexto operacional e com quais dados disponíveis?** A tecnologia é escolhida em função do problema.
 
-- **Perception:** object detection with YOLO.
-- **Flow Intelligence:** tracking with ByteTrack and event metrics.
-- **Semantic Video Search:** CLIP embeddings, Qdrant retrieval and `recall@k` diagnostics.
+## Demonstrated capability: Video Intelligence
 
-## Demonstration results
+Video Intelligence é uma capacidade experimental já construída e demonstrada dentro de Applied Intelligence — não o limite do projeto. A capacidade pública inclui:
 
-| Experiment | Evidence | Status |
+- **Detecção:** percepção de objetos com YOLO.
+- **Tracking:** manutenção de tracks com ByteTrack.
+- **Eventos e métricas:** transformação de observações em dados estruturados.
+- **Dwell time e trajetória:** métricas operacionais derivadas do movimento.
+- **Embeddings e busca semântica:** CLIP, Qdrant e diagnósticos de `recall@k`.
+- **Experimentação e avaliação:** pipelines executáveis, evidências e limites explícitos.
+
+## Evidências públicas
+
+| Experimento | Evidência | Status |
 |---|---:|---|
-| Flow Intelligence | 62 frames · 55 tracks · 2,377 events | Demonstrated |
-| Semantic Video Search | 499 indexed objects · 100% Recall@10 on 3 diagnostic queries | Demonstrated |
+| Flow Intelligence | 62 frames · 55 tracks · 2.377 eventos | Demonstrated |
+| Semantic Video Search | 499 objetos indexados · 100% Recall@10 em 3 queries diagnósticas | Demonstrated |
 
-These results use public proxy footage and are demonstrations of capability, not claims about any specific client environment.
+Esses resultados usam footage proxy público. São evidências técnicas e demonstrações de infraestrutura experimental, não benchmark industrial, case comercial ou alegação de performance em qualquer ambiente específico de cliente.
 
-## Architecture
+## Modalidades e espaços de aplicação
+
+A abordagem pode explorar vídeo, imagem, documentos, sensores, dados estruturados, séries temporais e linguagem. Essas modalidades representam o horizonte arquitetural de investigação; este repositório não afirma que todas estejam implementadas.
+
+Os espaços possíveis incluem operações, inspeção, segurança, logística, processos industriais, ativos e conhecimento operacional. São possibilidades de investigação, não uma lista de casos realizados.
+
+## Arquitetura conceitual
+
+```text
+Problema → Hipótese → Experimento → Evidência → Decisão → Sistema
+```
+
+A capacidade de vídeo demonstrada mantém uma cadeia técnica específica:
 
 ```text
 Video → Detection → Tracking → Events → Representation → Evaluation → Decision
 ```
 
-See [`docs/architecture.md`](docs/architecture.md) for the design and [`docs/experiments.md`](docs/experiments.md) for the public experiment cards. The private implementation, sensitive registries and client-specific hypotheses are intentionally not included here.
+Consulte [`docs/architecture.md`](docs/architecture.md) para o desenho, [`docs/experiments.md`](docs/experiments.md) para os experimentos públicos e [`docs/limitations.md`](docs/limitations.md) para os limites conhecidos.
 
-## Reproducibility and licenses
+## Reprodutibilidade e licenças
 
-The public repository contains explanatory material and sanitized examples. It does not redistribute model weights, datasets or third-party video. Fetch external dependencies and data according to their respective licenses. Review the terms of Ultralytics, OpenCLIP, Qdrant and each dataset before commercial use.
+O repositório público contém material explicativo e exemplos sanitizados. Não redistribui pesos de modelos, datasets ou vídeos de terceiros. Dependências e dados externos devem ser obtidos conforme suas respectivas licenças. Revise os termos de Ultralytics, OpenCLIP, Qdrant e de cada dataset antes de qualquer uso comercial.

@@ -1,4 +1,4 @@
-name: Deploy Video Intelligence site
+name: Deploy Applied Intelligence site
 
 on:
   push:
